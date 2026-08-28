@@ -3,114 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação Web - Billie Eilish</title>
-    <style>
-        /* ==========================================================================
-           CSS INTEGRADO (SEM NECESSIDADE DE ARQUIVO EXTERNO)
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #181738;
-            line-height: 1.6;
-            padding: 20px;
-            overflow-x: hidden; 
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Animação do Título (Esquerda para a Direita) */
-        h1 {
-            text-align: center;
-            color: #000542;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            animation: surgirDaEsquerda 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        /* Animação do Conteúdo (De Baixo para Cima) */
-        .conteudo-principal {
-            animation: surgirDeBaixo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        /* Movimentos das Animações */
-        @keyframes surgirDaEsquerda {
-            from {
-                opacity: 0;
-                transform: translateX(-60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes surgirDeBaixo {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .biografia p {
-            text-align: justify;
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-        }
-
-        /* Galeria Grid */
-        .galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .galeria img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border: 2px solid #2c3e50;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .galeria img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    <title>Billie Eilish - Da Estética ao Ativismo</title>
+    
+    <!-- Importação de fontes modernas do Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Conecta este HTML ao arquivo de estilo externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Container principal expandido e moderno -->
     <main class="container">
+        
+        <!-- O título com animação exclusiva da esquerda para a direita -->
         <h1>Billie Eilish</h1>
         
+        <!-- Div que agrupa todo o resto para subir suavemente de baixo para cima -->
         <div class="conteudo-principal">
-            <article class="biografia">
+            
+            <!-- Nova seção de Destaque/Introdução -->
+            <section class="secao-info">
+                <h2>A Voz de uma Geração</h2>
                 <p>
-                    Billie Eilish Pirate Baird O'Connell, nascida em Los Angeles em 18 de dezembro de 2001, é uma das maiores artistas da música pop atual, famosa por sua voz suave, estética autêntica de roupas largas e composições feitas em parceria com seu irmão e produtor, Finneas O'Connell.
+                    Billie Eilish Pirate Baird O'Connell, nascida em Los Angeles em 18 de dezembro de 2001, é uma das maiores forças da música pop mundial. Conhecida internacionalmente por seus vocais suaves e sussurrados, ela quebrou os padrões tradicionais da indústria ao adotar uma estética autêntica baseada em roupas largas e produções caseiras disruptivas, criadas em parceria com seu irmão e produtor, Finneas O'Connell.
                 </p>
-                <p>
-                    Billie Eilish equilibra uma carreira musical repleta de recordes no Grammy com um dos ativismos ecológicos mais práticos e influentes da cultura pop atual. Na premiação, a artista já acumula 10 estatuetas, tendo feito história aos 18 anos ao vencer as quatro categorias principais em uma única noite, além de conquistas consecutivas marcantes, incluindo o prêmio de Música do Ano de 2026 pela faixa folk-pop "Wildflower", do aclamado álbum <em>Hit Me Hard and Soft</em>.
-                </p>
-            </article>
+            </section>
 
+            <!-- Seção expandida sobre Carreira e Recordes -->
+            <section class="secao-info">
+                <h2>Recordes e Discografia</h2>
+                <p>
+                    Desde o lançamento do fenômeno global <em>"Bad Guy"</em> e do álbum de estreia <em>When We All Fall Asleep, Where Do We Go?</em>, Billie vem redefinindo recordes. Na história do Grammy, a artista acumula 10 estatuetas icônicas. Aos 18 anos, ela fez história ao se tornar a artista mais jovem a vencer as quatro categorias principais da premiação em uma única noite. Seu sucesso permaneceu inabalável com o aclamado álbum <em>Hit Me Hard and Soft</em>, conquistando o topo das paradas globais com a faixa folk-pop <em>"Wildflower"</em>.
+                </p>
+            </section>
+
+            <!-- Seção sobre o Ativismo Ecológico -->
+            <section class="secao-info">
+                <h2>Sustentabilidade e Impacto Cultural</h2>
+                <p>
+                    Além dos palcos, Billie Eilish equilibra sua influência na cultura pop com um dos ativismos ecológicos mais práticos e influentes do planeta. Suas turnês mundiais são estruturadas para reduzir radicalmente a pegada de carbono, banindo plásticos de uso único e oferecendo opções de alimentação 100% à base de plantas para os fãs. Ela utiliza sua visibilidade global para cobrar ações climáticas urgentes de grandes líderes e corporações, provando que a arte e a responsabilidade social caminham juntas.
+                </p>
+            </section>
+
+            <!-- Seção da Galeria de Fotos -->
+            <h2 class="titulo-galeria">Galeria Visual</h2>
             <section class="galeria">
                 <img src="img/I.jpg" alt="Foto de Billie Eilish de perfil">
                 <img src="img/Billie-eilish_1739852162528.webp" alt="Billie Eilish em uma apresentação ao vivo">
@@ -118,6 +57,7 @@
                 <img src="img/il.jpeg" alt="Billie Eilish em estúdio com seu irmão Finneas">
                 <img src="img/l.avif" alt="Arte conceitual do álbum Hit Me Hard and Soft">
             </section>
+            
         </div>
     </main>
 
