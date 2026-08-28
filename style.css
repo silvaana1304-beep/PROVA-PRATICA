@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET E ESTILOS BASE (TEMA PRETO E AZUL ESCURO)
+   1. RESET E ESTILOS BASE (TEMA NOVO: FUNDO AZUL PROFUNDO)
    ========================================================================== */
 * {
     margin: 0;
@@ -8,10 +8,9 @@
 }
 
 body {
-    /* Nova fonte sofisticada e literária para combinar com a estética artística */
     font-family: 'Cormorant Garamond', serif;
-    background-color: #000000; /* Fundo preto puro */
-    color: #e5ecff; /* Texto claro com leve toque azulado */
+    background-color: #020212; /* Fundo azul-escuro profundo (estética misteriosa) */
+    color: #e5ecff; /* Texto claro com leve toque azulado para contraste perfeito */
     line-height: 1.8;
     padding: 15px;
     overflow-x: hidden; 
@@ -27,16 +26,20 @@ body {
    2. ANIMAÇÕES EM CSS (EFEITO ULTRA SMOOTH)
    ========================================================================== */
 
-/* Título vindo da esquerda para a direita (Cor #00004F e Fonte Script) */
+/* Título estilo Billie Eilish (Cor #00004F + Contorno Branco) */
 h1 {
-    font-family: 'Great Vibes', cursive; /* Fonte Script/Manuscrita elegante */
+    font-family: 'Oswald', sans-serif; /* Fonte marcante inspirada nos álbuns dela */
     text-align: center;
-    color: #00004f; /* Cor exata solicitada */
-    font-size: clamp(4rem, 10vw, 7rem); /* Ajusta dinamicamente o tamanho */
-    margin: 30px 0;
-    font-weight: 400;
-    /* Aplica um leve brilho azul-escuro atrás do título para dar legibilidade no fundo preto */
-    text-shadow: 0 0 15px rgba(0, 0, 79, 0.6); 
+    color: #00004f; /* Azul escuro solicitado */
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    margin: 40px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -3px; /* Letras bem juntas estilo logo oficial */
+    
+    /* Cria o contorno branco perfeito ao redor das letras escuras */
+    -webkit-text-stroke: 2px #ffffff; 
+    text-stroke: 2px #ffffff;
     
     animation: surgirDaEsquerda 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -73,8 +76,9 @@ h1 {
    ========================================================================== */
 
 .secao-info {
-    background: rgba(255, 255, 255, 0.01); /* Fundo translúcido extremamente sutil */
-    border-left: 2px solid #00004f; /* Linha sutil na cor do tema */
+    /* Fundo sutil com um toque de azul brilhante bem transparente */
+    background: rgba(0, 85, 255, 0.02); 
+    border-left: 2px solid #00004f;
     padding: 25px;
     margin-bottom: 30px;
     border-radius: 4px;
@@ -92,14 +96,13 @@ h1 {
 
 .secao-info p {
     text-align: justify;
-    font-size: 1.35rem; /* Ajustado pois fontes serifadas tendem a parecer menores */
+    font-size: 1.35rem;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
 
-/* Destaque para termos importantes */
 em {
-    color: #4d88ff;
+    color: #6699ff; /* Tom azul intermediário para destacar links/álbuns */
     font-style: italic;
     font-weight: 400;
 }
@@ -130,15 +133,14 @@ em {
     object-fit: cover;
     border: none;
     border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    /* Transição da aura definida como 0.5s para ser muito smooth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Efeito de passar o mouse: Cria uma "aurazinha" iluminada ao redor de toda a imagem */
+/* Efeito de passar o mouse: Aurazinha em Azul Intermediário Perfeito (#0066ff) */
 .galeria img:hover {
-    transform: scale(1.02); /* Leve crescimento sutil */
-    /* A aura azul-escura se espalha igualmente por todas as direções (0px de deslocamento) */
-    box-shadow: 0 0 25px 8px rgba(0, 0, 79, 0.7); 
+    transform: scale(1.02);
+    /* Sombra azul intermediária (nem clara, nem escura) expandida uniformemente */
+    box-shadow: 0 0 25px 6px rgba(0, 102, 255, 0.65); 
     cursor: pointer;
 }
