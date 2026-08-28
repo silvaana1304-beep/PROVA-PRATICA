@@ -10,138 +10,8 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
-    <style>
-        /* ==========================================================================
-           ESTILOS INTEGRADOS (TEMA PRETO E AZUL + ANIMAÇÕES SMOOTH)
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000; /* Fundo preto puro */
-            color: #d0dbff; /* Texto em tom azul bem claro e suave para leitura */
-            line-height: 1.7;
-            padding: 15px;
-            overflow-x: hidden; 
-        }
-
-        .container {
-            max-width: 95%; /* Ocupa quase toda a largura da tela */
-            margin: 0 auto;
-            padding: 10px;
-        }
-
-        /* Título vindo da esquerda para a direita (Azul Elétrico) */
-        h1 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            text-align: center;
-            color: #0055ff; /* Azul elétrico marcante */
-            font-size: clamp(3rem, 8vw, 5rem); /* Se adapta ao celular e PC */
-            margin: 40px 0;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            animation: surgirDaEsquerda 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        /* Blocos de conteúdo surgindo de baixo para cima juntos */
-        .conteudo-principal {
-            animation: surgirDeBaixo 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        /* Movimentos das Animações */
-        @keyframes surgirDaEsquerda {
-            from {
-                opacity: 0;
-                transform: translateX(-80px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes surgirDeBaixo {
-            from {
-                opacity: 0;
-                transform: translateY(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Estilo para os blocos de informação */
-        .secao-info {
-            background: rgba(255, 255, 255, 0.02); /* Fundo sutil translúcido */
-            border-left: 4px solid #0055ff; /* Linha lateral azul */
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 4px;
-            width: 100%;
-        }
-
-        .secao-info h2 {
-            font-family: 'Syne', sans-serif;
-            color: #ffffff;
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-
-        .secao-info p {
-            color: #cbd5e1;
-            text-align: justify;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        /* Destaque para termos importantes (Azul Cyan Neon) */
-        em {
-            color: #00d9ff;
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        .titulo-galeria {
-            font-family: 'Syne', sans-serif;
-            color: #ffffff;
-            font-size: 2rem;
-            margin: 50px 0 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
-        }
-
-        /* Galeria Responsiva Avançada */
-        .galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px;
-            margin-top: 20px;
-            margin-bottom: 50px;
-        }
-
-        .galeria img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border: none;
-            border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        /* Efeito interativo com brilho azul nas fotos */
-        .galeria img:hover {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 85, 255, 0.4); /* Sombra com brilho azul neon */
-            cursor: pointer;
-        }
-    </style>
+    <!-- Conecta este HTML ao arquivo de estilo externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -158,7 +28,7 @@
             <section class="secao-info">
                 <h2>A Voz de uma Geração</h2>
                 <p>
-                    Billie Eilish Pirate Baird O'Connell, nascida em Los Angeles em 18 de dezembro de 2001, é uma das maiores forças da música pop mundial. Conhecida internacionalmente por seus vocais suaves e sussurrados, ela quebrou os padrões tradicionais da indústria ao adotar uma estética autêntica baseada em roupas largas e produções caseiras disruptivas, criadas em parceria com seu irmão e produtor, Finneas O'Connell.
+                    Billie Eilish Pirate Baird O'Connell, nascida em Los Angeles em 18 de dezembro de 2001, é uma das maiores forças da música pop mundial. Conhecida internacionalmente por seus vocais suaves e sussurrados, ela quebrou os padrões tradicionais da indústria ao adotar uma estética autêntica baseada em roupas largas e produções caseiras disruptivas, criadas in parceria com seu irmão e produtor, Finneas O'Connell.
                 </p>
             </section>
 
