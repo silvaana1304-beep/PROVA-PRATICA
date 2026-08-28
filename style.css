@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET E CONFIGURAÇÕES GERAIS
+   1. RESET E ESTILOS BASE (DARK MODE)
    ========================================================================== */
 * {
     margin: 0;
@@ -8,96 +8,133 @@
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #181738;
-    line-height: 1.6;
-    padding: 20px;
-    /* Evita que barras de rolagem apareçam na tela durante as animações */
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0c10; /* Fundo escuro profundo estilo Billie Eilish */
+    color: #c5a1ff; /* Tom claro suave para leitura confortável */
+    line-height: 1.7;
+    padding: 15px;
     overflow-x: hidden; 
 }
 
 .container {
-    max-width: 100px;
+    max-width: 95%; /* Ocupa quase toda a largura da tela */
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 /* ==========================================================================
-   2. ANIMAÇÕES EM CSS (EFEITO SMOOTH)
+   2. ANIMAÇÕES EM CSS (EFEITO ULTRA SMOOTH)
    ========================================================================== */
 
-/* Animação do Título (Esquerda para a Direita) */
+/* Título vindo da esquerda para a direita */
 h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
     text-align: center;
-    color: #000542;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    color: #10b981; /* Verde neon marcante */
+    font-size: clamp(3rem, 8vw, 5rem); /* Tamanho adaptável para celular e PC */
+    margin: 40px 0;
+    text-transform: uppercase;
+    letter-spacing: -2px;
     
-    /* Nome da animação | Duração | Curva de velocidade premium | Mantém o estado final estável */
-    animation: surgirDaEsquerda 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: surgirDaEsquerda 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Animação do Texto e Imagens (De Baixo para Cima - Tudo junto) */
+/* Blocos de conteúdo surgindo de baixo para cima juntos */
 .conteudo-principal {
-    animation: surgirDeBaixo 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: surgirDeBaixo 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* --- KEYFRAMES (Os movimentos exatos das animações) --- */
-
+/* Movimentos das Animações */
 @keyframes surgirDaEsquerda {
     from {
         opacity: 0;
-        transform: translateX(-60px); /* Começa 60px deslocado para a esquerda */
+        transform: translateX(-80px);
     }
     to {
         opacity: 1;
-        transform: translateX(0);     /* Termina centralizado no lugar original */
+        transform: translateX(0);
     }
 }
 
 @keyframes surgirDeBaixo {
     from {
         opacity: 0;
-        transform: translateY(40px); /* Começa 40px deslocado para baixo */
+        transform: translateY(60px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);    /* Termina na altura correta */
+        transform: translateY(0);
     }
 }
 
 /* ==========================================================================
-   3. ESTILIZAÇÃO DOS COMPONENTES
+   3. ESTILIZAÇÃO DOS COMPONENTES (TEXTO E IMAGENS)
    ========================================================================== */
 
-.biografia p {
-    text-align: justify;
-    font-size: 1.15rem;
-    margin-bottom: 20px;
+/* Estilo para os blocos de informação */
+.secao-info {
+    background: rgba(255, 255, 255, 0.03); /* Fundo glassmorphism sutil */
+    border-left: 4px solid #10b981; /* Detalhe verde na lateral */
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    width: 100%;
 }
 
-/* Galeria Responsiva inteligente (CSS Grid) */
+.secao-info h2 {
+    font-family: 'Syne', sans-serif;
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.secao-info p {
+    color: #e2e8f0;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Destaque para termos importantes */
+em {
+    color: #00ff88;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.titulo-galeria {
+    font-family: 'Syne', sans-serif;
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 50px 0 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Galeria Responsiva Avançada */
 .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .galeria img {
     width: 100%;
-    height: 250px;
+    height: 280px;
     object-fit: cover;
-    border: 2px solid #2c3e50;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Transição suave quando o usuário passar o mouse */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Transição suave para o efeito de passar o mouse */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Efeito interativo ao passar o mouse nas imagens */
+/* Efeito interativo futurista nas fotos */
 .galeria img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03) translateY(-5px); /* Dá um leve zoom e sobe */
+    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3); /* Sombra com brilho verde neon */
+    cursor: pointer;
 }
