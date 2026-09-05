@@ -1,6 +1,17 @@
 /* ==========================================================================
-   1. RESET E ESTILOS BASE (TEMA NOVO: FUNDO AZUL PROFUNDO)
+   1. CONFIGURAÇÕES GERAIS E CORES DA ERA "HIT ME HARD AND SOFT"
    ========================================================================== */
+:root {
+    --bg-profundo: #02020a;
+    --azul-eletrico: #0044ff;
+    --azul-escuro: #000033;
+    --azul-neon: #00f3ff;
+    --texto-claro: #e6edff;
+    --fonte-display: 'Syne', sans-serif;
+    --fonte-corpo: 'Space Grotesk', sans-serif;
+    --fonte-gotica: 'UnifrakturMaguntia', cursive;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,139 +19,306 @@
 }
 
 body {
-    font-family: 'Cormorant Garamond', serif;
-    background-color: #020212; /* Fundo azul-escuro profundo (estética misteriosa) */
-    color: #e5ecff; /* Texto claro com leve toque azulado para contraste perfeito */
-    line-height: 1.8;
-    padding: 15px;
-    overflow-x: hidden; 
+    font-family: var(--fonte-corpo);
+    background-color: var(--bg-profundo);
+    color: var(--texto-claro);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* Efeito de iluminação neon flutuante ao fundo */
+.background-glow {
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(0, 68, 255, 0.15) 0%, transparent 70%);
+    z-index: -2;
+    pointer-events: none;
+    animation: flutuarLuz 10s ease-in-out infinite alternate;
+}
+
+@keyframes flutuarLuz {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(10vw, 5vh) scale(1.2); }
+}
+
+/* Sobreposição de ruído de TV vintage para dar textura */
+.noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(transparent, rgba(0,0,0,0.4)), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    z-index: 1000;
+    pointer-events: none;
 }
 
 .container {
-    max-width: 95%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 10px;
 }
 
 /* ==========================================================================
-   2. ANIMAÇÕES EM CSS (EFEITO ULTRA SMOOTH)
+   2. HERO HEADER EXTRAVAGANTE (LETRA GIGANTE + EFEITO GLITCH/SOBREPOSTO)
    ========================================================================== */
+.hero-header {
+    position: relative;
+    padding: 100px 0 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-/* Título estilo Billie Eilish (Cor #00004F + Contorno Branco) */
-h1 {
-    font-family: 'Oswald', sans-serif; /* Fonte marcante inspirada nos álbuns dela */
+/* Letreiro Infinito no Topo */
+.marquee {
+    position: absolute;
+    top: 20px;
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid rgba(0, 68, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 68, 255, 0.3);
+    padding: 5px 0;
+}
+.marquee span {
+    display: inline-block;
+    font-family: var(--fonte-display);
+    font-size: 0.9rem;
+    color: var(--azul-neon);
+    letter-spacing: 5px;
+    animation: correrMarquee 15s linear infinite;
+}
+@keyframes correrMarquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.titulo-wrapper {
+    position: relative;
     text-align: center;
-    color: #00004f; /* Azul escuro solicitado */
-    font-size: clamp(3.5rem, 9vw, 6.5rem);
-    margin: 40px 0;
-    font-weight: 700;
+    line-height: 0.8;
+}
+
+.titulo-principal, .titulo-sobrenome {
+    font-family: var(--fonte-display);
+    font-weight: 800;
+    font-size: clamp(4rem, 16vw, 12rem);
     text-transform: uppercase;
-    letter-spacing: -3px; /* Letras bem juntas estilo logo oficial */
-    
-    /* Cria o contorno branco perfeito ao redor das letras escuras */
-    -webkit-text-stroke: 2px #ffffff; 
-    text-stroke: 2px #ffffff;
-    
-    animation: surgirDaEsquerda 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    letter-spacing: -5px;
+    position: relative;
+    cursor: default;
 }
 
-/* Conteúdo subindo */
-.conteudo-principal {
-    animation: surgirDeBaixo 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* Efeito Cromado/Contorno Vazado com preenchimento escuro profundo */
+.titulo-principal {
+    color: var(--azul-escuro);
+    -webkit-text-stroke: 2px #ffffff;
+    animation: deslizarEsquerda 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes surgirDaEsquerda {
-    from {
-        opacity: 0;
-        transform: translateX(-80px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.titulo-sobrenome {
+    color: #ffffff;
+    -webkit-text-stroke: 2px var(--azul-eletrico);
+    margin-top: -20px;
+    animation: deslizarDireita 1.2s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s;
 }
 
-@keyframes surgirDeBaixo {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes deslizarEsquerda {
+    from { opacity: 0; transform: translateX(-150px) skewX(-15deg); }
+    to { opacity: 1; transform: translateX(0) skewX(0); }
+}
+@keyframes deslizarDireita {
+    from { opacity: 0; transform: translateX(150px) skewX(15deg); }
+    to { opacity: 1; transform: translateX(0) skewX(0); }
+}
+
+.subtitulo-gótico {
+    font-family: var(--fonte-gotica);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: var(--azul-neon);
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forward 0.8s;
+    animation-fill-mode: forwards;
 }
 
 /* ==========================================================================
-   3. ESTILIZAÇÃO DOS COMPONENTES (TEXTO E IMAGENS)
+   3. GRADE ASSIMÉTRICA BRUTALISTA (CONTEÚDO)
    ========================================================================== */
-
-.secao-info {
-    /* Fundo sutil com um toque de azul brilhante bem transparente */
-    background: rgba(0, 85, 255, 0.02); 
-    border-left: 2px solid #00004f;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    width: 100%;
+.grid-assimetrica {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    margin: 80px 0;
 }
 
-.secao-info h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
+.card-extravagante {
+    background: linear-gradient(135deg, rgba(0, 15, 64, 0.4) 0%, rgba(2, 2, 10, 0.8) 100%);
+    border: 1px solid rgba(0, 68, 255, 0.2);
+    padding: 40px;
+    position: relative;
+    border-radius: 0px; /* Cantos retos intencionais para estética futurista/brutalista */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+}
+
+.card-extravagante:hover {
+    border-color: var(--azul-neon);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 68, 255, 0.15);
+}
+
+/* Forçando o layout assimétrico e desconectado */
+.secao-voz {
+    grid-column: 1 / 8;
+}
+.secao-recordes {
+    grid-column: 8 / 13;
+    margin-top: 40px;
+}
+.secao-ativismo {
+    grid-column: 3 / 11;
+    border-left: 4px solid var(--azul-neon);
+}
+
+@media (max-width: 900px) {
+    .secao-voz, .secao-recordes, .secao-ativismo { grid-column: 1 / 13; margin-top: 0; }
+}
+
+.decoracao-numero {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-family: var(--fonte-display);
+    font-size: 3.5rem;
+    color: rgba(0, 243, 255, 0.1);
+    font-weight: 800;
+}
+
+.card-extravagante h2 {
+    font-family: var(--fonte-display);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     color: #ffffff;
-    font-size: 2rem;
-    margin-bottom: 12px;
+    text-transform: uppercase;
 }
 
-.secao-info p {
-    text-align: justify;
-    font-size: 1.35rem;
+.card-extravagante p {
+    font-size: 1.1rem;
     font-weight: 300;
     letter-spacing: 0.5px;
+    color: #cbd5e1;
+    text-align: justify;
 }
 
-em {
-    color: #6699ff; /* Tom azul intermediário para destacar links/álbuns */
-    font-style: italic;
-    font-weight: 400;
+strong { color: var(--azul-neon); font-weight: 500; }
+em { font-style: italic; color: #ffffff; text-decoration: underline var(--azul-eletrico) 2px; }
+
+/* ==========================================================================
+   4. GALERIA VANGUARDISTA COM DISTORÇÃO PERSPECTIVA (3D SLANTED)
+   ========================================================================== */
+.secao-galeria {
+    margin-bottom: 100px;
+}
+
+.galeria-header {
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--azul-eletrico);
+    padding-bottom: 15px;
 }
 
 .titulo-galeria {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    color: #ffffff;
-    font-size: 2.2rem;
-    margin: 60px 0 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 10px;
+    font-family: var(--fonte-display);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+.titulo-galeria span {
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    color: var(--azul-neon);
+    vertical-align: middle;
 }
 
-/* Galeria Responsiva */
-.galeria {
+/* Grid de Imagens Descomunal */
+.galeria-vanguardista {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 25px;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    perspective: 1000px; /* Cria ambiente para transformações 3D */
 }
 
-.galeria img {
+.molde-imagem {
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+    height: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: rotateY(5deg) rotateX(5deg); /* Inclinação incomum nativa */
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.molde-imagem img {
     width: 100%;
-    height: 280px;
+    height: 100%;
     object-fit: cover;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: grayscale(40%) contrast(110%);
+    transition: transform 0.6s ease, filter 0.6s ease;
 }
 
-/* Efeito de passar o mouse: Aurazinha em Azul Intermediário Perfeito (#0066ff) */
-.galeria img:hover {
-    transform: scale(1.02);
-    /* Sombra azul intermediária (nem clara, nem escura) expandida uniformemente */
-    box-shadow: 0 0 25px 6px rgba(0, 102, 255, 0.65); 
-    cursor: pointer;
+/* Item puramente poético/tipográfico dentro da galeria */
+.item-vazio-decorativo {
+    background: var(--azul-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 1px dashed var(--azul-neon);
+}
+.item-vazio-decorativo p {
+    font-family: var(--fonte-gotica);
+    font-size: 2.2rem;
+    color: var(--texto-claro);
+    text-align: center;
+}
+
+/* Efeito Hover Extravagante: Endireita a foto, traz cor total e expande neon */
+.molde-imagem:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.03) translateZ(10px);
+    border-color: var(--azul-neon);
+    box-shadow: 0 20px 50px rgba(0, 243, 255, 0.3);
+    z-index: 10;
+}
+
+.molde-imagem:hover img {
+    filter: grayscale(0%) contrast(100%);
+    transform: scale(1.05);
+}
+
+/* Legendas Flutuantes Estilo Código Técnico */
+.legenda-imagem {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    background: var(--azul-eletrico);
+    color: #fff;
+    font-family: var(--fonte-display);
+    font-size: 0.8rem;
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: bottom 0.4s ease;
+}
+
+.molde-imagem:hover .legenda-imagem {
+    bottom: 0;
+}
+
+/* Animação Auxiliar */
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
